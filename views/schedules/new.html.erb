@@ -1,0 +1,33 @@
+<h1>新規スケジュール作成ページ（仮）</h1>
+<h2>スケジュール新規作成</h2>
+   <%= render "shared/error", obj: @plan %>
+ <%= form_with url: '' do |f| %>　　<!--form_forだとうまく送れなかった{form_for '@plan' do |f|}-->
+      <table>
+        <tr>
+          <th><%= f.label :title ,"タイトル" %></th>
+          <td><%= f.text_field :title ,size:"50"%></td>
+        </tr>
+        <tr>
+          <th><%= f.label :startTime ,"開始日" %></th>
+          <td><%= f.text_field :startTime ,size:"50"%></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :endTime ,"終了日" %></th>
+          <td><%= f.text_field :endTime ,size:"50"%></td>
+        </tr>
+        <tr>
+        <th><%= f.label :dayAll ,"終日" %></th>
+       <td><%= check_box_tag :dayAll%><p>終日の場合はチェックをします</p></td>
+       </tr>
+        <tr>
+          <th><%= f.label :memo ,"スケジュールメモ" %></th>
+          <td><%= f.text_area :memo,size:"50x10"%></td>
+        </tr>
+      </table>
+    <ul>
+      <li><%= f.submit "登録完了する"%></li>
+      <li><%= link_to "スケジュール一覧に戻る","/"%></li>
+    </ul>
+ <%end%>
+ 

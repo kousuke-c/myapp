@@ -1,0 +1,36 @@
+ <h3>編集</h3>
+   <%= form_with url: '' ,model: @plan do |f| %>
+   <!--editアクションの@planを取得するために-->
+   <!--urlを書いた後にモデル名@planを書いた-->
+   
+      <table>
+        <tr>
+          <th><%= f.label :title ,"タイトル" %></th>
+          <td><%= f.text_field :title ,size:"50"%></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :startTime ,"開始日" %></th>
+          <td><%= f.text_field :startTime ,size:"50"%></td>
+        </tr>
+ 
+        <tr>
+          <th><%= f.label :endTime ,"終了日" %></th>
+          <td><%= f.text_field :endTime ,size:"50"%></td>
+        </tr>
+        
+       <tr>
+        <th><%= f.label :dayAll ,"終日" %></th>
+       <td><%= check_box_tag :dayAll%><p>終日の場合はチェックをします</p></td>
+       </tr> 
+       
+        <tr>
+          <th><%= f.label :memo ,"スケジュールメモ" %></th>
+          <td><%= f.text_area :memo,size:"50x10"%></td>
+        </tr>
+      </table>
+        <ul>
+          <li><%= f.submit "編集を完了する" %></li>
+          <li><%= link_to "一覧に戻る", "/" %></li>
+        </ul>
+ <%end%>
